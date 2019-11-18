@@ -66,6 +66,10 @@ visualizer.show()
 optimal_alpha = 4.103
 ridge_reg = RidgeCV(alphas=np.array([optimal_alpha]))
 x = ridge_reg.fit(xtrain, ytrain)
+# print("Coefficients: ", ridge_reg.coef_)
+y_pred = ridge_reg.predict(xtest)
+err = mean_squared_error(ytest, y_pred)
+print("MSE for optimal model: ", err)
 
 # Yellowbrick Regressor - Plot error
 visualizer = PredictionError(ridge_reg)
