@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.linear_model import Ridge
 import numpy as np
 from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
 
 xtest_raw = pd.read_csv('../airbnb_datasets/xtest.csv')
 xtrain_raw = pd.read_csv('../airbnb_datasets/xtrain.csv')
@@ -14,11 +15,3 @@ ytest = ytest_raw.to_numpy()
 ytrain = ytrain_raw.to_numpy()
 
 # Linear
-
-# Ridge
-# try different alphas and cross validations (k-folds)
-clf = Ridge(alpha=1.0)
-x = clf.fit(xtrain, ytrain)
-y_pred = clf.predict(xtest)
-err = mean_squared_error(ytest, y_pred)
-print(err)
